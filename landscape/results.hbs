@@ -1,0 +1,32 @@
+{{log this}}
+
+{{#if (find facets name="Geolocation" empty=false)}}
+  <section class="webkite-primary-location">
+    {{>location-search}}
+    
+    {{resultsMap tagName="div" id="webkite-map-wrapper" data-infowindow-template="item-map-info" data-infowindow-width="240" titleFacet="Business Name"}}
+  </section>
+{{/if}}
+
+{{>name}}
+{{>embed}}
+
+{{>header}}
+
+{{#if items.length}}
+  <div id="webkite-results-list">
+    {{#each this.items}}
+      {{>result}}
+    {{/each}}
+  </div>
+  
+  <div id="webkite-results-modals">
+    {{#each this.items}}
+      <div id="{{this.id}}" class="webkite-item-details webkite-modal">{{>result-modal}}</div>
+    {{/each}}
+  </div>
+{{else}}
+  {{>noresult}}
+{{/if}}
+
+{{>footer}}

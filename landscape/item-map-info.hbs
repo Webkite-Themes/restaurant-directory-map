@@ -1,0 +1,29 @@
+<div class="webkite-map-info-window">
+  {{#facet name="Business Name"}}<h2 class="webkite-map-item-name">{{displayValue}}</h2>{{/facet}}
+  {{#any (find facets name="Address 1") (find facets name="City") (find facets name="State") (find facets name="Zip Code") (find facets name="Country") (find facets name="Address 2")}}
+    <span class="webkite-result-address">
+      {{#facet name="Address 1"}}<span class="webkite-address-one">{{displayValue}}</span>{{/facet}}
+      {{#facet name="Address 2"}}<span class="webkite-address-two">{{displayValue}}</span>{{/facet}}
+      <span class="webkite-address-clear">
+        {{~#facet name="City"}}<span class="webkite-city">{{displayValue}}</span>{{/facet}}
+        {{~#facet name="State"}}<span class="webkite-state">{{displayValue}}</span>{{/facet}}
+        {{#facet name="Zip Code"}}<span class="webkite-zip">{{displayValue}}</span>{{/facet~}}
+      </span>
+      {{#facet name="Country"}}<span class="webkite-country">{{displayValue}}</span>{{/facet}}
+    </span>
+  {{/any}}
+  {{#facet name="Phone Number"}}
+    <span class="webkite-result-phone">{{displayValue}}</span>
+  {{/facet}}
+  <div class="webkite-map-info-details">
+    {{#facet name="Geolocation"}}
+      <a href="#" class="webkite-location-add-filter" 
+      data-facet="{{name}}" 
+      data-operator="near" 
+      data-address="{{displayValue}}" 
+      data-distance="2" 
+      {{#with (find ../filters.currentFilters facet=name)}}data-unit="{{unit}}"{{/with}} title='{{t "Search Nearby" default="Search Nearby"}}'>{{t "Search Nearby" default="Search Nearby"}}</a>
+    {{~/facet~}}
+    <a href="#" data-id="{{this.id}}" class="webkite-toggle-item" data-toggle="modal" data-speed="100ms" title='{{t "Details" default="Details"}}'>{{t "Details" default="Details"}}</a>  
+  </div>
+</div>

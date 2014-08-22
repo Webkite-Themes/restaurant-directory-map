@@ -1,0 +1,86 @@
+<div class="webkite-result-modal">
+  <a href="#" data-id="{{this.id}}" class="webkite-toggle-item" data-animate="200ms" data-speed="100ms">x</a>
+  <div class="webkite-modal-content">
+
+    {{#any (find facets name="Geolocation") (find facets name="Image")~}}
+      <div id="webkite-map-{{id}}" class="webkite-item-map-wrapper">
+        {{#facet name="Image"~}}
+          <div id="webkite-image-{{../id}}" class="webkite-modal-image">
+            <div class="webkite-image" style="background-image:url({{displayValue}})"><img src="{{displayValue}}"/></div>
+          </div>
+        {{/facet}}
+        {{#itemMap this}}
+          <div class="webkite-item-map"></div>
+        {{/itemMap}}
+      </div>
+      {{#all (find facets name="Geolocation") (find facets name="Image")~}}
+        <div class="webkite-toggle-group">
+          <a href="#" data-target="#webkite-image-{{id}}" class="webkite-button webkite-button-light webkite-group-toggle webkite-active" title='{{t "Photo" default="Photo"}}'>{{downcase (t "Photo" default="photo")}}</a><!--
+       --><a href="#" data-target="#webkite-map-{{id}} .webkite-item-map" class="webkite-button webkite-button-light webkite-group-toggle" title='{{t "Map" default="Map"}}'>{{downcase (t "Map" default="map")}}</a>
+        </div>
+      {{/all}}
+    {{~/any}}    
+    
+    <div class="webkite-result">
+      {{#facet name="Image"~}}
+        <div class="webkite-image-wrapper">
+          <div class="webkite-image" style="background-image:url({{displayValue}})"><img src="{{displayValue}}"/></div>
+        </div>
+      {{~/facet~}}
+      <div class="webkite-result-body">
+        {{#facet name="Business Name"}}<h2 class="webkite-result-name">{{displayValue}}</h2>{{/facet}}
+    
+        {{#facet name="Category"}}
+          <div class="webkite-result-category">
+            {{#if filterable}}
+              {{#each values}}<a href="#" class="webkite-add-filter" data-facet="{{../name}}" data-operator="is" data-value="{{this}}">{{this}}</a>{{#unless @last}}, <br>{{/unless}}{{/each}}
+            {{else}}
+              <span class="facet-values">{{displayValue}}</span>
+            {{/if}}
+          </div>
+        {{/facet}}
+        
+        {{#any (find facets name="Address 1") (find facets name="City") (find facets name="State") (find facets name="Zip Code") (find facets name="Country") (find facets name="Address 2")}}
+          <span class="webkite-result-address">
+            {{~#facet name="Address 1"}}<span class="webkite-address-one">{{displayValue}}</span>{{/facet}}
+            {{~#facet name="Address 2"}}<span class="webkite-address-two">{{displayValue}}</span>{{/facet}}
+            <span class="webkite-address-clear">
+              {{~#facet name="City"}}<span class="webkite-city">{{displayValue}}</span>{{/facet}}
+              {{~#facet name="State"}}<span class="webkite-state">{{displayValue}}</span>{{/facet}}
+              {{~#facet name="Zip Code"}}<span class="webkite-zip">{{displayValue}}</span>{{/facet~}}
+            </span>
+            {{~#facet name="Country"}}<span class="webkite-country">{{displayValue}}</span>{{/facet}}
+          </span>
+        {{/any}}
+        
+        {{#facet name="Phone Number"}}
+          <span class="webkite-result-phone">{{displayValue}}</span>
+        {{/facet}}
+        
+        {{#facet name="Description"}}<p class="webkite-description">{{displayValue}}</p>{{/facet}}
+        
+        {{#any (find facets name="Website") (find facets name="Email") (find facets name="Fax Number") (find facets name="Facebook") (find facets name="Twitter")}}
+          <ul class="webkite-list-horizontal">
+            {{~#facet name="Website"~}}
+              <li><a class="webkite-website" href="{{displayValue}}" target="_blank">{{downcase displayName}}</a></li>
+            {{~/facet~}}
+            {{~#facet name="Email"~}}
+              <li><a href="mailto:{{displayValue}}">{{downcase displayName}}</a></li>
+            {{~/facet~}}
+            {{~#facet name="Facebook"~}}
+              <li><a class="webkite-website" href="{{displayValue}}" target="_blank">{{downcase displayName}}</a></li>
+            {{~/facet~}}
+            {{~#facet name="Twitter"~}}
+              <li><a href="https://twitter.com/{{displayValue}}" target="_blank">{{downcase displayName}}</a></li>
+            {{/facet}}
+          </ul>
+        {{/any}}
+      </div>
+    </div>
+        
+  </div>
+  <div class="webkite-modal-foot">
+    <a href="#" data-id="{{this.id}}" class="webkite-toggle-item" data-animate="200ms" data-speed="100ms">{{t "Close" default="Close"}}</a>
+  </div>
+  
+</div>

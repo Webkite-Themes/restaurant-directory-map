@@ -1,0 +1,37 @@
+  <div class="webkite-location-search">
+    {{#facet name="Geolocation"}}
+      <form action='#'>
+        <input type='hidden' value='{{name}}' name='webkite-location-facet' class='webkite-location-facet' />
+        <input type='hidden' value='near' name='webkite-location-operation' class='webkite-location-operation' />
+        <div class="webkite-form-block-one">
+          <span class="form-block webkite-search-label" title='{{t "Search within" default="Search within"}}'>{{t "Search within" default="Search within"}}</span><!--
+       --><span class="form-block webkite-search-miles">
+            <input type='text' value="{{#with (find ../filters.currentFilters facet=name)}}{{distance}}{{/with}}" name='webkite-location-distance' class='webkite-location-miles' />
+          </span><!--
+       --><span class="form-block webkite-search-units">
+            <span class="webkite-styled-select">
+              <select name="unit" class="webkite-location-unit">
+                <option value="mi"{{#with (find ../filters.currentFilters facet=name)}}{{#if (equals unit "mi")}} selected{{/if}}{{/with}}>mi</option>
+                <option value="km"{{#with (find ../filters.currentFilters facet=name)}}{{#if (equals unit "km")}} selected{{/if}}{{/with}}>km</option>
+              </select>
+            </span>
+          </span>
+        </div><!--
+     --><div class="webkite-form-block-two{{#if (find ../filters.currentFilters facet=name)}} webkite-filter-active{{/if}}">
+          <span class="webkite-search-divider" title='{{t "of" default="of"}}'>{{t "of" default="of"}}</span><!--
+       --><span class="form-block webkite-search-address">
+            <input type='text' value="{{#with (find ../filters.currentFilters facet=name)}}{{address}}{{/with}}" name='webkite-location-address' placeholder="{{downcase (t 'Address or Landmark' default='address or landmark')}}" class='webkite-location-address' />
+          {{~#if (find ../filters.currentFilters facet=name)~}}
+            <a href="#" class='webkite-remove-filter webkite-remove-location-search'
+                  data-facet="{{name}}" 
+                  data-operator="near" 
+                  data-value="{{#with (find ../../filters.currentFilters facet=name)}}{{params.value}}{{/with}}"></a>
+          {{~/if~}}
+          </span><!--
+       --><span class="webkite-location-buttons">
+            <input type='button' class='webkite-location-submit webkite-button' name='webkite-location-submit' value="Go!" />
+          </span>
+        </div>
+      </form>
+    {{/facet}}
+  </div>
