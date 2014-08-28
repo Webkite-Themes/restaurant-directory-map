@@ -36,8 +36,11 @@
       <span class="webkite-result-phone">{{displayValue}}</span>
     {{/facet}}
         
-    {{#any (find facets name="Website") (find facets name="Email") (find facets name="Fax Number") (find facets name="Facebook") (find facets name="Twitter")}}
+    {{#any (find facets name="Menu URL") (find facets name="Website") (find facets name="Email") (find facets name="Fax Number") (find facets name="Facebook") (find facets name="Twitter")}}
       <ul class="webkite-list-horizontal">
+      	{{~#facet name="Menu URL"~}}
+          <li><a class="webkite-website" href="{{displayValue}}" target="_blank">{{downcase displayName}}</a></li>
+        {{~/facet~}}
         <li><a href="#" data-id="{{this.id}}" class="webkite-toggle-item" data-toggle="modal" data-speed="100ms">{{downcase (t "Details" default="details")}}</a></li>
         {{~#facet name="Website"~}}
           <li><a class="webkite-website" href="{{displayValue}}" target="_blank">{{downcase displayName}}</a></li>
