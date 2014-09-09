@@ -1,4 +1,5 @@
 $colorVariant:dark;
+$themeName:restaurant-directory-map-landscape;
 
 // get 600 weight for Open Sans too
 @import url("//fonts.googleapis.com/css?family=Open+Sans:600");
@@ -14,12 +15,12 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
 
 
 /* RESET */
-#webkite-results{
+#webkite-results.#{$themeName}{
   @include resetThings;
   }
 
 /****************************************** BEGIN STYLES */
-#webkite-results{
+#webkite-results.#{$themeName}{
   background: $backgroundColor;
   border: 1px solid $lighterOpacity;
   @include roundedUp(.625em);
@@ -37,7 +38,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
   }
   
 /* TYPOGRAPHY */
-#webkite-results{
+#webkite-results.#{$themeName}{
   h1, h2{
     margin: 0;
     }
@@ -56,7 +57,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
 
 
 /********** MAP */
-#webkite-results {
+#webkite-results.#{$themeName} {
   .webkite-primary-location{
     @include roundedUp(.625em .625em 0 0);
     margin-top:-$mainGutter;
@@ -179,7 +180,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
 
 
 /************ LOCATION */
-#webkite-results {
+#webkite-results.#{$themeName} {
   .webkite-location-search {
     @include roundedUp(.625em .625em 0 0);
     background:$backgroundColor;
@@ -396,7 +397,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
 
   
 /********************************************** BLOCKS */
-#webkite-results{
+#webkite-results.#{$themeName}{
 
   .webkite-block-group {
     @include boxedUp;
@@ -423,7 +424,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
   }
   
 /************************************ LANDSCAPE RESULTS */
-#webkite-results{
+#webkite-results.#{$themeName}{
   
   .webkite-result{
     position: relative;
@@ -436,14 +437,14 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
       background:rgba(255,255,255,0.12);
       }
     }
-  #webkite-results-list {
+  #webkite-results.#{$themeName}-list {
     margin-bottom:$mainGutter/2;
     .webkite-result.webkite-highlight{
       background:$highlightColor;
       color:$medOpacity;
       }
     }
-  .webkite-results-header + #webkite-results-list {margin-top:-$mainGutter/2;}
+  .webkite-results-header + #webkite-results.#{$themeName}-list {margin-top:-$mainGutter/2;}
   .webkite-result + .webkite-results-footer {margin-top:$mainGutter/2;}
   .webkite-image-wrapper {
     @include boxedUp;
@@ -582,7 +583,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
   }
   
 /*********** MODALS */
-#webkite-results{
+#webkite-results.#{$themeName}{
   .webkite-item-details{
     @include boxedUp;
     position: fixed;
@@ -711,7 +712,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
   
 
 /******************************************* NO RESULTS */
-#webkite-results{
+#webkite-results.#{$themeName}{
   
   .webkite-no-results{
     padding: 0 0 $mainGutter 0;
@@ -724,7 +725,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
   }
   
 /************************************** ELEMENT QUERIES */
-#webkite-results.xs{
+#webkite-results.#{$themeName}.xs{
   #webkite-map-wrapper{height:220px;}
   .webkite-map-info-window{
     font-size:13px;
@@ -759,7 +760,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
     }
   }
   
-#webkite-results.sm{
+#webkite-results.#{$themeName}.sm{
   #webkite-map-wrapper{height:260px;}
   .webkite-map-info-window{
     font-size:13px;
@@ -783,8 +784,8 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
     }
   }
 
-#webkite-results.md{
-  #webkite-results-list .webkite-result-name{
+#webkite-results.#{$themeName}.md{
+  #webkite-results.#{$themeName}-list .webkite-result-name{
     padding-right:150px;
     + .webkite-result-distance + .webkite-result-category{
       margin-top:-$mainGutter/5;
@@ -803,7 +804,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
 /* modal sizings */
 @media screen and (max-width: 670px){
   //sm
-  #webkite-results{
+  #webkite-results.#{$themeName}{
     .webkite-item-details{
       width: 100%;
       left:0;
@@ -829,7 +830,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
       }
     }
     
-  #webkite-results.sm .webkite-modal-content {
+  #webkite-results.#{$themeName}.sm .webkite-modal-content {
     .webkite-image-wrapper {
       @include roundedUp(3px);
       width:150px;
@@ -844,7 +845,7 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
 
 @media screen and (max-width:470px){
   //xs
-  #webkite-results{
+  #webkite-results.#{$themeName}{
     .webkite-item-details{
       padding:$mainGutter/2;
       margin-top:-265px;
@@ -882,8 +883,8 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
       }
     }
     
-  #webkite-results.xs .webkite-modal-content,
-  #webkite-results.sm .webkite-modal-content {
+  #webkite-results.#{$themeName}.xs .webkite-modal-content,
+  #webkite-results.#{$themeName}.sm .webkite-modal-content {
     .webkite-image-wrapper {
       display:none;
       + .webkite-result-body {
@@ -893,25 +894,25 @@ $groupButtonHoverColor: rgba(255,255,255,0.2);
     }
 }
 @media screen and (max-height:620px){
-  #webkite-results .webkite-item-details{
+  #webkite-results.#{$themeName} .webkite-item-details{
     margin-top:0;
     top:0;
     }
 }
 @media screen and (max-height: 500px){
-  #webkite-results .webkite-modal-content{
+  #webkite-results.#{$themeName} .webkite-modal-content{
     .webkite-result{max-height:200px;}
     .webkite-toggle-group + .webkite-result{max-height:180px;}
     }
 }
 @media screen and (max-height: 440px){
-  #webkite-results .webkite-modal-content{
+  #webkite-results.#{$themeName} .webkite-modal-content{
     .webkite-result{max-height:180px;}
     .webkite-toggle-group + .webkite-result{max-height:160px;}
     }
 }
 @media screen and (max-height: 400px){
-  #webkite-results .webkite-modal-content{
+  #webkite-results.#{$themeName} .webkite-modal-content{
     .webkite-result{max-height:160px;}
     .webkite-toggle-group + .webkite-result{max-height:140px;}
     }
