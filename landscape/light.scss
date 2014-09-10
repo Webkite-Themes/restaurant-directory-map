@@ -16,12 +16,12 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
 
 
 /* RESET */
-#webkite-results.#{$themeName}{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}{
   @include resetThings;
   }
 
 /****************************************** BEGIN STYLES */
-#webkite-results.#{$themeName}{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}{
   background: $backgroundColor;
   border: 1px solid $lighterOpacity;
   @include roundedUp(.625em);
@@ -39,7 +39,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
   }
   
 /* TYPOGRAPHY */
-#webkite-results.#{$themeName}{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}{
   h1, h2{
     margin: 0;
     }
@@ -58,7 +58,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
 
 
 /********** MAP */
-#webkite-results.#{$themeName} {
+#webkite-results.#{$themeName}.webkite-#{$colorVariant} {
   .webkite-primary-location{
     @include roundedUp(.625em .625em 0 0);
     margin-top:-$mainGutter;
@@ -181,7 +181,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
 
 
 /************ LOCATION */
-#webkite-results.#{$themeName} {
+#webkite-results.#{$themeName}.webkite-#{$colorVariant} {
   .webkite-location-search {
     @include roundedUp(.625em .625em 0 0);
     background:$backgroundColor;
@@ -397,7 +397,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
 
   
 /********************************************** BLOCKS */
-#webkite-results.#{$themeName}{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}{
 
   .webkite-block-group {
     @include boxedUp;
@@ -424,7 +424,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
   }
   
 /************************************ LANDSCAPE RESULTS */
-#webkite-results.#{$themeName}{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}{
   
   .webkite-result{
     position: relative;
@@ -437,14 +437,14 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
       background:rgba(0,0,0,0.02);
       }
     }
-  #webkite-results.#{$themeName}-list {
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant}-list {
     margin-bottom:$mainGutter/2;
     .webkite-result.webkite-highlight{
       background:$highlightColor;
       color:$medOpacity;
       }
     }
-  .webkite-results-header + #webkite-results.#{$themeName}-list {margin-top:-$mainGutter/2;}
+  .webkite-results-header + #webkite-results.#{$themeName}.webkite-#{$colorVariant}-list {margin-top:-$mainGutter/2;}
   .webkite-result + .webkite-results-footer {margin-top:$mainGutter/2;}
   .webkite-image-wrapper {
     @include boxedUp;
@@ -583,7 +583,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
   }
   
 /*********** MODALS */
-#webkite-results.#{$themeName}{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}{
   .webkite-item-details{
     @include boxedUp;
     position: fixed;
@@ -713,7 +713,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
   
 
 /******************************************* NO RESULTS */
-#webkite-results.#{$themeName}{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}{
   
   .webkite-no-results{
     padding: 0 0 $mainGutter 0;
@@ -726,7 +726,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
   }
   
 /************************************** ELEMENT QUERIES */
-#webkite-results.#{$themeName}.xs{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}.xs{
   #webkite-map-wrapper{height:220px;}
   .webkite-map-info-window{
     font-size:13px;
@@ -761,7 +761,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
     }
   }
   
-#webkite-results.#{$themeName}.sm{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}.sm{
   #webkite-map-wrapper{height:260px;}
   .webkite-map-info-window{
     font-size:13px;
@@ -785,8 +785,8 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
     }
   }
   
-#webkite-results.#{$themeName}.md{
-  #webkite-results.#{$themeName}-list .webkite-result-name{
+#webkite-results.#{$themeName}.webkite-#{$colorVariant}.md{
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant}-list .webkite-result-name{
     padding-right:150px;
     + .webkite-result-distance + .webkite-result-category{
       margin-top:-$mainGutter/5;
@@ -805,7 +805,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
 /* modal sizings */
 @media screen and (max-width: 670px){
   //sm
-  #webkite-results.#{$themeName}{
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant}{
     .webkite-item-details{
       width: 100%;
       left:0;
@@ -831,7 +831,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
       }
     }
     
-  #webkite-results.#{$themeName}.sm .webkite-modal-content {
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant}.sm .webkite-modal-content {
     .webkite-image-wrapper {
       @include roundedUp(3px);
       width:150px;
@@ -846,7 +846,7 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
 
 @media screen and (max-width:470px){
   //xs
-  #webkite-results.#{$themeName}{
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant}{
     .webkite-item-details{
       padding:$mainGutter/2;
       margin-top:-265px;
@@ -884,8 +884,8 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
       }
     }
     
-  #webkite-results.#{$themeName}.xs .webkite-modal-content,
-  #webkite-results.#{$themeName}.sm .webkite-modal-content {
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant}.xs .webkite-modal-content,
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant}.sm .webkite-modal-content {
     .webkite-image-wrapper {
       display:none;
       + .webkite-result-body {
@@ -895,25 +895,25 @@ $groupButtonHoverColor: rgba(0,0,0,0.08);
     }
 }
 @media screen and (max-height:620px){
-  #webkite-results.#{$themeName} .webkite-item-details{
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant} .webkite-item-details{
     margin-top:0;
     top:0;
     }
 }
 @media screen and (max-height: 500px){
-  #webkite-results.#{$themeName} .webkite-modal-content{
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant} .webkite-modal-content{
     .webkite-result{max-height:200px;}
     .webkite-toggle-group + .webkite-result{max-height:180px;}
     }
 }
 @media screen and (max-height: 440px){
-  #webkite-results.#{$themeName} .webkite-modal-content{
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant} .webkite-modal-content{
     .webkite-result{max-height:180px;}
     .webkite-toggle-group + .webkite-result{max-height:160px;}
     }
 }
 @media screen and (max-height: 400px){
-  #webkite-results.#{$themeName} .webkite-modal-content{
+  #webkite-results.#{$themeName}.webkite-#{$colorVariant} .webkite-modal-content{
     .webkite-result{max-height:160px;}
     .webkite-toggle-group + .webkite-result{max-height:140px;}
     }
